@@ -29,6 +29,6 @@ lightbrightness 100 #changes the brightness to 100%, etc
 
 lightcolour 1 100 #changes the colour to red (1) max saturation (100)
 
-lightcolour red #human colour input. red, green, blue, white, orange, yellow, pink, purple
+lightcolour red #human colour input. red, green, blue, lightblue, white, orange, yellow, pink, purple
 
 I hope this is useful :)
