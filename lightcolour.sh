@@ -5,8 +5,8 @@ sat=$2
 
 if [ "$1" -gt "360" ]; then
 	hue=360
-elif [ "$1" -lt "1" ]; then
-	hue=1
+elif [ "$1" -lt "0" ]; then
+	hue=0
 elif [ "$2" -gt "100"; then
 	sat=100
 elif [ "$2" -lt "1"; then
@@ -42,7 +42,6 @@ elif [ "$1" == "lightblue" ];then
 elif [ "$1" == "white" ];then
         hue=0
 	sat=0
-	curl -X PUT --header "Content-Type:Application/json" --header "authorization: XXX-XX-XXX" http://192.168.X.X:51826/characteristics --data '{"characteristics":[{"aid":2,"iid":11,"value":'0',"status":0}]}' &> /dev/null
 elif [ "$1" == "orange" ];then
         hue=15
 	sat=100
