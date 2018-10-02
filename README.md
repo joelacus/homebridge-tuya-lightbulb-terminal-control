@@ -15,7 +15,7 @@ INSTALL
 
 6) Change the id and iids in the scripts accordingly, as well as the IP, PORT, and authorization (homekit number) of your homebridge in the scripts.
 
-7) Copy the scipts into /usr/bin/ to run as a command from the terminal.
+7) Copy the scipts into /usr/bin/ to run as a command from the terminal. (you can remove the .sh if you like)
 
 8) Done! :D
 
