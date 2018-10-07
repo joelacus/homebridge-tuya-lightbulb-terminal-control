@@ -1,4 +1,5 @@
 #!/bin/bash
+#change the led brightness of a tuya smart light.
 
 #input variable
 brightness=$1
