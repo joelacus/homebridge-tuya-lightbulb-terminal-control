@@ -1,8 +1,11 @@
 #!/bin/bash
+#change the led colour of a tuya smart light.
 
+#input variables
 hue=$1
 sat=$2
 
+#input limitations
 if [ "$1" -gt "360" ]; then
 	hue=360
 elif [ "$1" -lt "0" ]; then
@@ -13,13 +16,14 @@ elif [ "$2" -lt "1"; then
 	sat=1
 fi &> /dev/null
 
+#if the input is a number, then echo light hue and sat, otherwise, echo word
 if [[ "$1" =~ ^[0-9]+$ ]]; then
-echo ">> Light hue: $hue"
-echo ">> Light sat: $sat"
+echo ">> Light Hue: $hue"
+echo ">> Light Sat: $sat"
 else
 case "$1" in
   red|green|blue|lightblue|white|orange|yellow|purple|pink)
-    echo ">> Light colour: $1"
+    echo ">> Light Colour: $1"
     ;;
   *)
     echo ">> Colours: red, green, blue, lightblue, white, orange, yellow, purple, pink"
@@ -27,6 +31,7 @@ case "$1" in
 esac
 fi
 
+#colour hue and saturation values
 if [ "$1" == "red" ];then
 	hue=1
 	sat=100
@@ -56,6 +61,8 @@ elif [ "$1" == "pink" ];then
 	sat=100
 fi &> /dev/null
 
-
+#set saturation
 curl -X PUT --header "Content-Type:Application/json" --header "authorization: XXX-XX-XXX" http://192.168.X.X:51826/characteristics --data '{"characteristics":[{"aid":2,"iid":12,"value":'$sat',"status":0}]}' &> /dev/null
+
+#set hue
 curl -X PUT --header "Content-Type:Application/json" --header "authorization: XXX-XX-XXX" http://192.168.X.X:51826/characteristics --data '{"characteristics":[{"aid":2,"iid":11,"value":'$hue',"status":0}]}' &> /dev/null
